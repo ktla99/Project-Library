@@ -16,11 +16,6 @@ let myLibrary = [];
         }
     }
 
-
-const button = document.getElementById("button");
-const newForm = document.getElementById('form');
-
-
 window.onload = function() {
     document.getElementById('text').style.display = 'none';
     document.getElementById('pages').style.display = 'none';
@@ -28,6 +23,15 @@ window.onload = function() {
     document.getElementById('checkboxTwo').style.display = 'none';
 }
 
+
+    const bookButton = document.getElementById("bookButton");
+    bookButton.addEventListener('click', ()=> {
+        document.getElementById('bookButton').style.display = 'none';
+        document.getElementById('text').style.display = ''
+        document.getElementById('pages').style.display = '';
+        document.getElementById('checkboxOne').style.display = '';
+        document.getElementById('checkboxTwo').style.display = '';
+    });
 
 
     /*
