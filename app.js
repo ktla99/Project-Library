@@ -1,8 +1,34 @@
 let myLibrary = [];
 
-    function Book() {}
+    function Book(name, pages, read) {
+        let book = Object.create(Book.prototype)
+        this.name = name
+        this.pages = pages
+        this.read = read
 
-    function addBookToLibrary() {}
+        return book
+    }
+
+    function addBookToLibrary() {
+
+        for (let key in Book) {
+            console.log()
+        }
+    }
+
+
+const button = document.getElementById("button");
+const newForm = document.getElementById('form');
+
+
+window.onload = function() {
+    document.getElementById('text').style.display = 'none';
+    document.getElementById('pages').style.display = 'none';
+    document.getElementById('checkboxOne').style.display = 'none';
+    document.getElementById('checkboxTwo').style.display = 'none';
+}
+
+
 
     /*
     const title = "Warriors"
@@ -29,7 +55,7 @@ let myLibrary = [];
     }
 
     printPerson(personTwo);
-    */
+    
 
     function Person(title, author, pages, read) {
         this.title = title
@@ -46,3 +72,4 @@ let myLibrary = [];
     warriors.info()
 
     console.log(warriors.info());
+    */
