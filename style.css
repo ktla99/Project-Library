@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.formBox {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    align-self: center;
+}
