@@ -16,14 +16,18 @@ let myLibrary = [];
         }
     }
 
+
 window.onload = function() {
     document.getElementById('text').style.display = 'none';
     document.getElementById('pages').style.display = 'none';
     document.getElementById('checkboxOne').style.display = 'none';
     document.getElementById('checkboxTwo').style.display = 'none';
+    document.getElementById('titleOfBook').style.display = 'none';
+    document.getElementById('numberOfPages').style.display = 'none';
+    document.getElementsByClassName('numberOfPages')[0].style.display = 'none';
 }
 
-
+document.addEventListener('DOMContentLoaded', () => {
     const bookButton = document.getElementById("bookButton");
     bookButton.addEventListener('click', ()=> {
         document.getElementById('bookButton').style.display = 'none';
@@ -32,7 +36,7 @@ window.onload = function() {
         document.getElementById('checkboxOne').style.display = '';
         document.getElementById('checkboxTwo').style.display = '';
     });
-
+});
 
     /*
     const title = "Warriors"
