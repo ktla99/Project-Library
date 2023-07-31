@@ -2,10 +2,13 @@
     margin: 0;
 }
 
-.title {
+
+.libraryTitle {
     display: flex;
-    align-self: right;
-    font-size: 40px;
+    text-align: center;
+    justify-content: center;
+    padding-top: 25px;
+    font-size: 80px;
     font-weight: 600;
 }
 
@@ -14,14 +17,54 @@
     flex-direction: column;
 }
 
-.button {
+.bigButton {
     display: flex;
     align-self: center;
+    padding-top: 200px;
+}
+
+#bookButton {
+    font-size: 50px;
+    text-align: center;
+    width: 300px;
+    height: 100px;
 }
 
 .formBox {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     max-width: 300px;
     align-self: center;
+    gap: 60px;
+}
+
+.groupTitle {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    grid-column: 1 / 6;
+    grid-row: 1;
+}
+
+
+.groupPages {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    grid-column: 1 / 6;
+    grid-row: 2;
+
+}
+
+.groupQuestionOne {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-column: 1 / 6;
+    grid-row: 3;
+}
+
+.groupQuestionTwo {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-column: 1 / 6;
+    grid-row: 4;
 }
