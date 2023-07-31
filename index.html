@@ -6,24 +6,37 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="title">
-        <ul class="libraryTitle">
-        Welcome to the Library! 
-        </ul>
-    </div>
-    <div class="container">
-        <div class="bigButton">
-            <input type="button" id="bookButton" name="bookButton" value="Add a book">
+    <div class="bigContainer">
+        <div class="bigTitle">
+            <ul class="libraryTitle">
+            Welcome to the Library! 
+            </ul>
         </div>
-        <div class="formBox">
-            <div id="titleOfBook">Title</div>
-            <input type="text" id="text" name="text">
-            <div id="numberOfPages">Pages</div>
-            <input type="number" id="pages" name="pages">
-            <div id="readQuestion">Have read:</div>
-            <input type="checkbox" id="checkboxOne" name="checkboxOne">
-            <div id="notReadQuestion">Have not read:</div>
-            <input type="checkbox" id="checkboxTwo" name="checkboxTwo">
+        <div class="container">
+            <div class="bigButton">
+                <input type="button" id="bookButton" name="bookButton" value="Add a book">
+            </div>
+            <div class="formBox">
+                <div class="groupTitle">
+                    <div id="titleOfBook">Title:</div>
+                    <input type="text" id="text" name="text">
+                </div>
+                <div class="groupPages">
+                    <div id="numberOfPages">Pages:</div>
+                    <input type="number" id="pages" name="pages">
+                </div>
+                <div class="groupQuestionOne">
+                    <div id="readQuestion">Have read:</div>
+                    <input type="checkbox" id="checkboxOne" name="checkboxOne">
+                </div>
+                <div class="groupQuestionTwo">
+                    <div id="notReadQuestion">Have not read:</div>
+                    <input type="checkbox" id="checkboxTwo" name="checkboxTwo">
+                </div>
+            </div>
+            <div class="submitButton">
+                <input type="button" id="bookSubmit" name="bookSubmit" value="Add to library">
+            </div>
         </div>
     </div>
 </body>
