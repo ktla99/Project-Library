@@ -26,6 +26,7 @@ window.onload = function() {
     document.getElementById('numberOfPages').style.display = 'none';
     document.getElementById('readQuestion').style.display = 'none';
     document.getElementById('notReadQuestion').style.display = 'none';
+    document.getElementById('bookSubmit').style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('numberOfPages').style.display = '';
         document.getElementById('readQuestion').style.display = '';
         document.getElementById('notReadQuestion').style.display = '';
+        document.getElementById('bookSubmit').style.display = '';
     });
 });
 
