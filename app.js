@@ -1,55 +1,92 @@
-let myLibrary = [];
-
-    function Book() {
-        constructor()
-    }
-
-    function addBookToLibrary() {
-        const libraryButton = document.getElementById("bookSubmit");
-        libraryButton.addEventListener('click', ()=> {
-            const newLibraryBook = document.body.appendChild(document.createElement("p"));
-            document.body.appendChild(p);
-        })
-    };
-
-function Error() {
-    
-}
-
-
-
+const text = document.getElementById('text');
+const pages = document.getElementById('pages');
+const checkboxOne = document.getElementById('checkboxOne');
+const checkboxTwo = document.getElementById('checkboxTwo');
+const titleOfBook =  document.getElementById('titleOfBook');
+const numberOfPages = document.getElementById('numberOfPages');
+const readQuestion = document.getElementById('readQuestion');
+const notReadQuestion = document.getElementById('notReadQuestion');
+const bookSubmit = document.getElementById('bookSubmit');
+const bookButton = document.getElementById("bookButton");
+const previousOperandTextElement = document.querySelector('[data-previous-operand]');
+const currentOperandTextElement = document.querySelector('[data-current-operand]');
 
 window.onload = function() {
-    document.getElementById('text').style.display = 'none';
-    document.getElementById('pages').style.display = 'none';
-    document.getElementById('checkboxOne').style.display = 'none';
-    document.getElementById('checkboxTwo').style.display = 'none';
-    document.getElementById('titleOfBook').style.display = 'none';
-    document.getElementById('numberOfPages').style.display = 'none';
-    document.getElementById('readQuestion').style.display = 'none';
-    document.getElementById('notReadQuestion').style.display = 'none';
-    document.getElementById('bookSubmit').style.display = 'none';
+    text.style.display = 'none';
+    pages.style.display = 'none';
+    checkboxOne.style.display = 'none';
+    checkboxTwo.style.display = 'none';
+    titleOfBook.style.display = 'none';
+    numberOfPages.style.display = 'none';
+    readQuestion.style.display = 'none';
+    notReadQuestion.style.display = 'none';
+    bookSubmit.style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const bookButton = document.getElementById("bookButton");
     bookButton.addEventListener('click', ()=> {
-        document.getElementById('bookButton').style.display = 'none';
-        document.getElementById('text').style.display = ''
-        document.getElementById('pages').style.display = '';
-        document.getElementById('checkboxOne').style.display = '';
-        document.getElementById('checkboxTwo').style.display = '';
-        document.getElementById('titleOfBook').style.display = '';
-        document.getElementById('numberOfPages').style.display = '';
-        document.getElementById('readQuestion').style.display = '';
-        document.getElementById('notReadQuestion').style.display = '';
-        document.getElementById('bookSubmit').style.display = '';
+        bookButton.style.display = 'none';
+        text.style.display = '';
+        pages.style.display = '';
+        checkboxOne.style.display = '';
+        checkboxTwo.style.display = '';
+        titleOfBook.style.display = '';
+        numberOfPages.style.display = '';
+        readQuestion.style.display = '';
+        notReadQuestion.style.display = '';
+        bookSubmit.style.display = '';
     });
 });
 
 
+let myLibrary = [];
 
-    /*
+function Book(name, pages) {
+    this.name = name;
+    this.pages = pages;
+}
+
+function Warriors(name, pages, read) {
+    Book.call(this, name, pages);
+
+    this.read = read;
+}
+
+function TCoC(name, pages, notRead) {
+    Book.call(this, name, pages);
+
+    this.notRead = notRead;
+}
+
+Object.setPrototypeOf(Warriors.prototype, Book.prototype);
+Object.setPrototypeOf(TCoC.prototype, Book.prototype);
+
+
+let inputForm = document.getElementById("inputForm");
+inputForm.addEventListener('submit', (e)=> {
+        e.preventDefault();
+        if (text.value == "") {
+            alert("Ensure that you input a value in both fields!");
+        } else {
+            alert("This form has been successfully submitted!");
+            console.log(`The book added is ${text.value}`);
+        text.value = "";
+    }
+});
+
+
+/*
+
+function addBookToLibrary() {}
+updateLibrary();
+
+removeBook();
+
+
+
+
+
+
     const title = "Warriors"
     const author = "Erin Hunter"
     const pages = "288";
