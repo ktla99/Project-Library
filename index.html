@@ -12,30 +12,36 @@
             Welcome to the Library! 
             </ul>
         </div>
+        <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
+        </div>
         <div class="container">
             <div class="bigButton">
                 <input type="button" id="bookButton" name="bookButton" value="NEW BOOK">
             </div>
             <div class="formBox">
-                <div class="groupTitle">
-                    <div id="titleOfBook">Title:</div>
-                    <input type="text" id="text" name="text" required min="1">
+                <form action="" id="inputForm">
+                    <div class="groupTitle">
+                        <div id="titleOfBook">Title:</div>
+                        <input type="text" id="text" name="text" placeholder="Enter book's title here" required min="1">
+                    </div>
+                    <div class="groupPages">
+                        <div id="numberOfPages">Pages:</div>
+                        <input type="number" id="pages" name="pages" required min="1">
+                    </div>
+                    <div class="groupQuestionOne">
+                        <div id="readQuestion">Have read:</div>
+                        <input type="checkbox" id="checkboxOne" name="checkboxOne">
+                    </div>
+                    <div class="groupQuestionTwo">
+                        <div id="notReadQuestion">Have not read:</div>
+                        <input type="checkbox" id="checkboxTwo" name="checkboxTwo">
+                    </div>
+                <div class="submitButton">
+                    <button type="submit" id="bookSubmit" name="bookSubmit">Add to library</button>
                 </div>
-                <div class="groupPages">
-                    <div id="numberOfPages">Pages:</div>
-                    <input type="number" id="pages" name="pages" required min="1">
-                </div>
-                <div class="groupQuestionOne">
-                    <div id="readQuestion">Have read:</div>
-                    <input type="checkbox" id="checkboxOne" name="checkboxOne">
-                </div>
-                <div class="groupQuestionTwo">
-                    <div id="notReadQuestion">Have not read:</div>
-                    <input type="checkbox" id="checkboxTwo" name="checkboxTwo">
-                </div>
-            </div>
-            <div class="submitButton">
-                <input type="button" id="bookSubmit" name="bookSubmit" value="Add to library">
+                </form>
             </div>
         </div>
     </div>
