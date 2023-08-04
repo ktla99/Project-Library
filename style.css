@@ -35,6 +35,14 @@
     height: 100px;
 }
 
+input:invalid {
+    border: 2px solid red;
+}
+
+input:valid {
+    border: 2px solid black;
+}
+
 .formBox {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -99,6 +107,12 @@
 
 .submitButton {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding-top: 40px;
+}
+
+#bookSubmit {
+    width: 100px;
+    height: 40px;
 }
