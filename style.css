@@ -93,6 +93,11 @@ input:valid {
     white-space: nowrap;
 }
 
+#readQuestion {
+    padding-left: 23px;
+}
+
+
 .groupQuestionTwo {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -114,9 +119,17 @@ input:valid {
     font-size: 17px;
 }
 
+#titleOfBook {
+    padding-left: 6px;
+}
+
 #text,
 #pages {
     font-size: 12px;
+}
+
+#numberOfPages {
+    padding-right: 38px;
 }
 
 .submitButton {
