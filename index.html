@@ -30,17 +30,19 @@
                         <div id="numberOfPages">Pages:</div>
                         <input type="number" id="pages" name="pages" required min="1">
                     </div>
-                    <div class="groupQuestionOne">
-                        <div id="readQuestion">Have read:</div>
-                        <input type="checkbox" id="checkboxOne" name="checkboxOne">
-                    </div>
-                    <div class="groupQuestionTwo">
-                        <div id="notReadQuestion">Have not read:</div>
-                        <input type="checkbox" id="checkboxTwo" name="checkboxTwo">
-                    </div>
-                <div class="submitButton">
-                    <button type="submit" id="bookSubmit" name="bookSubmit">Add to library</button>
-                </div>
+                    <form action="" id="checkBoxes">
+                        <div class="groupQuestionOne">
+                            <div id="readQuestion">Have read:</div>
+                            <input type="checkbox" id="checkboxOne" name="checkboxOne" onclick="boxChecked()">
+                        </div>
+                        <div class="groupQuestionTwo">
+                            <div id="notReadQuestion">Have not read:</div>
+                            <input type="checkbox" id="checkboxTwo" name="checkboxTwo" onclick="boxChecked()">
+                        </div>
+                        <div class="submitButton">
+                            <button type="submit" id="bookSubmit" name="bookSubmit">Add to library</button>
+                        </div>
+                    </form>
                 </form>
             </div>
         </div>
