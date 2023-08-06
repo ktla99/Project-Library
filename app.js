@@ -1,3 +1,4 @@
+let myLibrary = [];
 const text = document.getElementById('text');
 const pages = document.getElementById('pages');
 const checkboxOne = document.getElementById('checkboxOne');
@@ -39,40 +40,36 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-let myLibrary = [];
-
-function Book(name, pages) {
-    this.name = name;
-    this.pages = pages;
-}
-
-function Warriors(name, pages, read) {
-    Book.call(this, name, pages);
-
-    this.read = read;
-}
-
-function TCoC(name, pages, notRead) {
-    Book.call(this, name, pages);
-
-    this.notRead = notRead;
-}
-
-Object.setPrototypeOf(Warriors.prototype, Book.prototype);
-Object.setPrototypeOf(TCoC.prototype, Book.prototype);
-
-
 let inputForm = document.getElementById("inputForm");
 inputForm.addEventListener('submit', (e)=> {
         e.preventDefault();
-        if (text.value == "") {
+        if (text.value == "" || pages.value == "") {
             alert("Ensure that you input a value in both fields!");
         } else {
             alert("This form has been successfully submitted!");
-            console.log(`The book added is ${text.value}`);
+            console.log(`The book title added is ${text.value} and has ${pages.value} pages.`);
+        myLibrary.push(e);
         text.value = "";
+        pages.value = "";
     }
 });
+
+
+function boxChecked() {
+    let checkBoxOne = document.getElementById("checkboxOne");
+    let checkboxTwo = document.getElementById("checkboxTwo");
+    if(checkBoxOne.checked == true && checkboxTwo.checked == false) {
+        console.log("You have read this book!")
+    } else if (checkBoxOne.checked == false && checkboxTwo.checked == true) {
+        console.log("You have not read this book yet!")
+    } else if (checkBoxOne.checked == true && checkboxTwo.checked == true) {
+        alert("You can only click on one of the checkboxes!")
+    } else {
+        alert("Please only click on one of the checkboxes!")
+        checkBoxOne === false;
+        checkboxTwo === false;
+    }
+};
 
 
 /*
