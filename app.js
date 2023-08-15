@@ -1,4 +1,5 @@
 let myLibrary = [];
+const library = document.getElementById('library');
 const text = document.getElementById('text');
 const pages = document.getElementById('pages');
 const checkboxOne = document.getElementById('checkboxOne');
@@ -11,8 +12,51 @@ const bookSubmit = document.getElementById('bookSubmit');
 const bookButton = document.getElementById("bookButton");
 const previousOperandTextElement = document.querySelector('[data-previous-operand]');
 const currentOperandTextElement = document.querySelector('[data-current-operand]');
+const inputThing = document.getElementById('inputForm');
 
-window.onload = function() {
+
+const windowLoad = window.onload = function() {
+    library.style.display = 'none';
+    inputThing.style.display = 'none';
+}
+
+const buttonLoad = document.addEventListener('DOMContentLoaded', () => {
+    bookButton.addEventListener('click', ()=> {
+        bookButton.style.display = 'none';
+        inputThing.style.display = '';
+    });
+});
+
+function boxChecked() {
+    let checkBoxOne = document.getElementById("checkboxOne");
+    let checkboxTwo = document.getElementById("checkboxTwo");
+    if(checkBoxOne.checked == true && checkboxTwo.checked == false) {
+        console.log("You have read this book!");
+        checkboxTwo.required = false;
+        checkboxTwo.checked = false;
+    } else if (checkBoxOne.checked == false && checkboxTwo.checked == true) {
+        console.log("You have not read this book yet!")
+        checkboxOne.required = false;
+        checkboxOne.checked = false;
+    } else {
+        alert("You can only click on one of the checkboxes!");
+        checkBoxOne === "";
+        checkboxTwo === "";
+    }
+};
+
+/*
+function Book(name, pages, read) {
+    this.name = text.value;
+    this.pages = pages.value;
+    this.read = readOrNotRead().value;
+     li = library.innerHTML;
+    library.innerHTML = [text.value, pages.value];
+    
+}
+*/
+
+function reset() {
     text.style.display = 'none';
     pages.style.display = 'none';
     checkboxOne.style.display = 'none';
@@ -22,59 +66,33 @@ window.onload = function() {
     readQuestion.style.display = 'none';
     notReadQuestion.style.display = 'none';
     bookSubmit.style.display = 'none';
+    library.style.display = ""
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    bookButton.addEventListener('click', ()=> {
-        bookButton.style.display = 'none';
-        text.style.display = '';
-        pages.style.display = '';
-        checkboxOne.style.display = '';
-        checkboxTwo.style.display = '';
-        titleOfBook.style.display = '';
-        numberOfPages.style.display = '';
-        readQuestion.style.display = '';
-        notReadQuestion.style.display = '';
-        bookSubmit.style.display = '';
-    });
-});
-
+function addBookToLibrary() {
+    let 
+};                               
 
 let inputForm = document.getElementById("inputForm");
-inputForm.addEventListener('submit', (e)=> {
+const input = inputForm.addEventListener('submit', (e)=> {
         e.preventDefault();
-        if (text.value == "" || pages.value == "") {
+        if (text.value == "" || pages.value == "" && (boxChecked())) {
             alert("Ensure that you input a value in both fields!");
         } else {
             alert("This form has been successfully submitted!");
             console.log(`The book title added is ${text.value} and has ${pages.value} pages.`);
-        myLibrary.push(e);
-        text.value = "";
-        pages.value = "";
+        reset();
+        addBookToLibrary();
     }
 });
 
 
-function boxChecked() {
-    let checkBoxOne = document.getElementById("checkboxOne");
-    let checkboxTwo = document.getElementById("checkboxTwo");
-    if(checkBoxOne.checked == true && checkboxTwo.checked == false) {
-        console.log("You have read this book!")
-    } else if (checkBoxOne.checked == false && checkboxTwo.checked == true) {
-        console.log("You have not read this book yet!")
-    } else if (checkBoxOne.checked == true && checkboxTwo.checked == true) {
-        alert("You can only click on one of the checkboxes!")
-    } else {
-        alert("Please only click on one of the checkboxes!")
-        checkBoxOne === false;
-        checkboxTwo === false;
-    }
-};
+
 
 
 /*
 
-function addBookToLibrary() {}
+
 updateLibrary();
 
 removeBook();
