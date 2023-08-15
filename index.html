@@ -12,6 +12,7 @@
             Welcome to the Library! 
             </ul>
         </div>
+        <p id="library">Books Read:</p>
         <div class="output">
             <div data-previous-operand class="previous-operand"></div>
             <div data-current-operand class="current-operand"></div>
@@ -33,11 +34,11 @@
                     <form action="" id="checkBoxes">
                         <div class="groupQuestionOne">
                             <div id="readQuestion">Have read:</div>
-                            <input type="checkbox" id="checkboxOne" name="checkboxOne" onclick="boxChecked()">
+                            <input type="checkbox" id="checkboxOne" name="checkboxOne" required onclick="boxChecked()">
                         </div>
                         <div class="groupQuestionTwo">
                             <div id="notReadQuestion">Have not read:</div>
-                            <input type="checkbox" id="checkboxTwo" name="checkboxTwo" onclick="boxChecked()">
+                            <input type="checkbox" id="checkboxTwo" name="checkboxTwo" required onclick="boxChecked()">
                         </div>
                         <div class="submitButton">
                             <button type="submit" id="bookSubmit" name="bookSubmit">Add to library</button>
