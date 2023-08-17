@@ -14,18 +14,18 @@ const previousOperandTextElement = document.querySelector('[data-previous-operan
 const currentOperandTextElement = document.querySelector('[data-current-operand]');
 const inputThing = document.getElementById('inputForm');
 
-
-const windowLoad = window.onload = function() {
+window.onload = function() {
     library.style.display = 'none';
     inputThing.style.display = 'none';
+    bookButtonLoad();
 }
 
-const buttonLoad = document.addEventListener('DOMContentLoaded', () => {
+function bookButtonLoad() {
     bookButton.addEventListener('click', ()=> {
         bookButton.style.display = 'none';
         inputThing.style.display = '';
     });
-});
+};
 
 function boxChecked() {
     let checkBoxOne = document.getElementById("checkboxOne");
@@ -38,6 +38,10 @@ function boxChecked() {
         console.log("You have not read this book yet!")
         checkboxOne.required = false;
         checkboxOne.checked = false;
+    } else if (checkBoxOne.checked == false && checkboxTwo.checked == false) {
+        console.log("Please check one of the boxes!")
+        checkboxOne.required = false;
+        checkboxTwo.required = false;
     } else {
         alert("You can only click on one of the checkboxes!");
         checkBoxOne === "";
@@ -66,11 +70,17 @@ function reset() {
     readQuestion.style.display = 'none';
     notReadQuestion.style.display = 'none';
     bookSubmit.style.display = 'none';
-    library.style.display = ""
+    library.style.display = "";
+    bookButton.style.display = '';
+    bookButtonLoad();
 }
 
 function addBookToLibrary() {
-    let 
+    const nameOfBook = document.createElement("p");
+    const pagesRead = document.createElement("p");
+    nameOfBook.textContent = [text.value, pages.value];
+    library.append(nameOfBook);
+    library.append(pagesRead);
 };                               
 
 let inputForm = document.getElementById("inputForm");
@@ -81,8 +91,8 @@ const input = inputForm.addEventListener('submit', (e)=> {
         } else {
             alert("This form has been successfully submitted!");
             console.log(`The book title added is ${text.value} and has ${pages.value} pages.`);
-        reset();
         addBookToLibrary();
+        reset();
     }
 });
 
