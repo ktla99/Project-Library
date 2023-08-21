@@ -27,38 +27,49 @@ function bookButtonLoad() {
     });
 };
 
+let inputForm = document.getElementById("inputForm");
+const input = inputForm.addEventListener('submit', (e)=> {
+        e.preventDefault();
+        if (text.value == "" || pages.value == "") {
+            alert("Ensure that you input a value in both fields!");
+        } else {
+            alert("This form has been successfully submitted!");
+            console.log(`The book title added is ${text.value} and has ${pages.value} pages.`);
+        
+        addBookToLibrary();
+        reset();
+    }
+});
+
 function boxChecked() {
     let checkBoxOne = document.getElementById("checkboxOne");
     let checkboxTwo = document.getElementById("checkboxTwo");
-    if(checkBoxOne.checked == true && checkboxTwo.checked == false) {
+    if(checkBoxOne.checked === true && checkboxTwo.checked === false) {
         console.log("You have read this book!");
         checkboxTwo.required = false;
         checkboxTwo.checked = false;
-    } else if (checkBoxOne.checked == false && checkboxTwo.checked == true) {
-        console.log("You have not read this book yet!")
+        return true
+    } else if (checkBoxOne.checked == false && checkboxTwo.checked === true) {
+        console.log("You have not read this book yet!");
         checkboxOne.required = false;
         checkboxOne.checked = false;
-    } else if (checkBoxOne.checked == false && checkboxTwo.checked == false) {
-        console.log("Please check one of the boxes!")
+        return false;
+    } else if (checkBoxOne.checked === false && checkboxTwo.checked === false) {
+        alert("Please check one of the boxes!");
         checkboxOne.required = false;
         checkboxTwo.required = false;
     } else {
         alert("You can only click on one of the checkboxes!");
-        checkBoxOne === "";
-        checkboxTwo === "";
+        checkBoxOne.checked = "";
+        checkboxTwo.checked = "";
     }
 };
 
-/*
-function Book(name, pages, read) {
-    this.name = text.value;
-    this.pages = pages.value;
-    this.read = readOrNotRead().value;
-     li = library.innerHTML;
-    library.innerHTML = [text.value, pages.value];
-    
+function valueOfBoxes() {
+    if (checkboxOne.checked === true) {
+        return console.log("You have read ")
+    }
 }
-*/
 
 function reset() {
     text.style.display = 'none';
@@ -76,25 +87,14 @@ function reset() {
 }
 
 function addBookToLibrary() {
-    const nameOfBook = document.createElement("p");
-    const pagesRead = document.createElement("p");
-    nameOfBook.textContent = [text.value, pages.value];
-    library.append(nameOfBook);
-    library.append(pagesRead);
+    const nameAndPage = document.createElement("p");
+    nameAndPage.textContent = [text.value, pages.value];
+    library.append(nameAndPage);
+    const readAnswer = document.createElement("p");
+
 };                               
 
-let inputForm = document.getElementById("inputForm");
-const input = inputForm.addEventListener('submit', (e)=> {
-        e.preventDefault();
-        if (text.value == "" || pages.value == "" && (boxChecked())) {
-            alert("Ensure that you input a value in both fields!");
-        } else {
-            alert("This form has been successfully submitted!");
-            console.log(`The book title added is ${text.value} and has ${pages.value} pages.`);
-        addBookToLibrary();
-        reset();
-    }
-});
+
 
 
 
