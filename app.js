@@ -13,6 +13,8 @@ const bookButton = document.getElementById("bookButton");
 const previousOperandTextElement = document.querySelector('[data-previous-operand]');
 const currentOperandTextElement = document.querySelector('[data-current-operand]');
 const inputThing = document.getElementById('inputForm');
+let checkBoxOne = document.getElementById("checkboxOne");
+let checkBoxTwo = document.getElementById("checkboxTwo");
 
 window.onload = function() {
     library.style.display = 'none';
@@ -35,38 +37,35 @@ const input = inputForm.addEventListener('submit', (e)=> {
         } else {
             alert("This form has been successfully submitted!");
             console.log(`The book title added is ${text.value} and has ${pages.value} pages.`);
-        
         addBookToLibrary();
         reset();
     }
 });
 
 function boxChecked() {
-    let checkBoxOne = document.getElementById("checkboxOne");
-    let checkboxTwo = document.getElementById("checkboxTwo");
-    if(checkBoxOne.checked === true && checkboxTwo.checked === false) {
+    if(checkBoxOne.checked === true && checkBoxTwo.checked === false) {
         console.log("You have read this book!");
-        checkboxTwo.required = false;
-        checkboxTwo.checked = false;
+        checkBoxTwo.required = false;
+        checkBoxTwo.checked = false;
         return true
-    } else if (checkBoxOne.checked == false && checkboxTwo.checked === true) {
+    } else if (checkBoxOne.checked == false && checkBoxTwo.checked === true) {
         console.log("You have not read this book yet!");
-        checkboxOne.required = false;
-        checkboxOne.checked = false;
+        checkBoxOne.required = false;
+        checkBoxOne.checked = false;
         return false;
-    } else if (checkBoxOne.checked === false && checkboxTwo.checked === false) {
+    } else if (checkBoxOne.checked === false && checkBoxTwo.checked === false) {
         alert("Please check one of the boxes!");
-        checkboxOne.required = false;
-        checkboxTwo.required = false;
+        checkBoxOne.required = false;
+        checkBoxTwo.required = false;
     } else {
         alert("You can only click on one of the checkboxes!");
         checkBoxOne.checked = "";
-        checkboxTwo.checked = "";
+        checkBoxTwo.checked = "";
     }
 };
 
 function valueOfBoxes() {
-    if (checkboxOne.checked === true) {
+    if (checkBoxOne.checked === true) {
         return console.log("You have read ")
     }
 }
@@ -74,8 +73,8 @@ function valueOfBoxes() {
 function reset() {
     text.style.display = 'none';
     pages.style.display = 'none';
-    checkboxOne.style.display = 'none';
-    checkboxTwo.style.display = 'none';
+    checkBoxOne.style.display = 'none';
+    checkBoxTwo.style.display = 'none';
     titleOfBook.style.display = 'none';
     numberOfPages.style.display = 'none';
     readQuestion.style.display = 'none';
@@ -91,7 +90,11 @@ function addBookToLibrary() {
     nameAndPage.textContent = [text.value, pages.value];
     library.append(nameAndPage);
     const readAnswer = document.createElement("p");
-
+    if(checkBoxOne.checked === true) {
+        readAnswer.textContent = ["This book has been read!"];
+    } else {
+        readAnswer.textContent = ["This book has not been read yet!"];
+    }
 };                               
 
 
