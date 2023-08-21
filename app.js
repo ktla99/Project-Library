@@ -1,16 +1,14 @@
 let myLibrary = [];
-const library = document.getElementById('library');
-const text = document.getElementById('text');
-const pages = document.getElementById('pages');
-const checkboxOne = document.getElementById('checkboxOne');
-const checkboxTwo = document.getElementById('checkboxTwo');
-const titleOfBook =  document.getElementById('titleOfBook');
-const numberOfPages = document.getElementById('numberOfPages');
-const readQuestion = document.getElementById('readQuestion');
-const notReadQuestion = document.getElementById('notReadQuestion');
-const bookSubmit = document.getElementById('bookSubmit');
-const bookButton = document.getElementById("bookButton");
-const inputThing = document.getElementById('inputForm');
+let library = document.getElementById('library');
+let text = document.getElementById('text');
+let pages = document.getElementById('pages');
+let titleOfBook =  document.getElementById('titleOfBook');
+let numberOfPages = document.getElementById('numberOfPages');
+let readQuestion = document.getElementById('readQuestion');
+let notReadQuestion = document.getElementById('notReadQuestion');
+let bookSubmit = document.getElementById('bookSubmit');
+let bookButton = document.getElementById("bookButton");
+let inputThing = document.getElementById('inputForm');
 let checkBoxOne = document.getElementById("checkboxOne");
 let checkBoxTwo = document.getElementById("checkboxTwo");
 
@@ -36,7 +34,6 @@ const input = inputForm.addEventListener('submit', (e)=> {
             alert("This form has been successfully submitted!");
             console.log(`The book title added is ${text.value} and has ${pages.value} pages.`);
         addBookToLibrary();
-        reset();
     }
 });
 
@@ -79,7 +76,6 @@ function reset() {
     notReadQuestion.style.display = 'none';
     bookSubmit.style.display = 'none';
     library.style.display = "";
-    bookButton.style.display = '';
     bookButtonLoad();
 }
 
@@ -89,9 +85,13 @@ function addBookToLibrary() {
     library.append(nameAndPage);
     const readAnswer = document.createElement("p");
     if(checkBoxOne.checked === true) {
-        readAnswer.textContent = ["This book has been read!"];
+        readAnswer.textContent = "Read";
+        library.append(readAnswer);
+        reset();
     } else {
-        readAnswer.textContent = ["This book has not been read yet!"];
+        readAnswer.textContent = "Not Read";
+        library.append(readAnswer);
+        reset();
     }
 };                               
 
