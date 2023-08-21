@@ -52,10 +52,12 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
+    color:#FFEEDB;
     font-size: 80px;
     font-weight: 600;
     font-family: 'Josefin Sans', sans-serif;
     font-family: 'Play', sans-serif;
+    text-shadow: 0 8px #A53860;
 }
 
 #folder {
@@ -201,4 +203,12 @@ input:valid {
 #bookSubmit {
     width: 100px;
     height: 40px;
+    color: #FFEEDB;
+    background-color: #4c3b4d;
+}
+
+#bookSubmit:hover {
+    color: #A53860;
+    background-color: #ADA8B6;
+    cursor: url('/home/kimmitykimkim/Downloads/Scroll.cur'), auto;
 }
