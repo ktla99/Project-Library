@@ -45,7 +45,7 @@ body {
 
 .bigContainer {
     display: grid;
-    grid-template-rows: 150px 100px 100px;
+    grid-template-rows: 250px 100px 100px;
     grid-template-columns: auto;
 }
 
@@ -191,6 +191,7 @@ input:valid {
 
 .submitButton {
     display: grid;
+    grid-column: 2;
     justify-content: center;
 }
 
