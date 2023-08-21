@@ -22,6 +22,7 @@ window.onload = function() {
 function bookButtonLoad() {
     bookButton.addEventListener('click', ()=> {
         bookButton.style.display = 'none';
+        library.style.display = 'none';
         inputThing.style.display = '';
     });
 };
@@ -60,20 +61,8 @@ function boxChecked() {
     }
 };
 
-function Book(title, author, pages) {
-
-}
-
 function reset() {
-    text.style.display = 'none';
-    pages.style.display = 'none';
-    checkBoxOne.style.display = 'none';
-    checkBoxTwo.style.display = 'none';
-    titleOfBook.style.display = 'none';
-    numberOfPages.style.display = 'none';
-    readQuestion.style.display = 'none';
-    notReadQuestion.style.display = 'none';
-    bookSubmit.style.display = 'none';
+    inputThing.style.display = 'none';
     library.style.display = "";
     bookButton.style.display = "";
     bookButtonLoad();
@@ -83,6 +72,7 @@ function addBookToLibrary() {
     let nameAndPage = document.createElement("p");
     nameAndPage.textContent = [text.value, author.value, pages.value];
     library.append(nameAndPage);
+    myLibrary.push(nameAndPage);
     let readAnswer = document.createElement("p");
     if(checkBoxOne.checked === true) {
         readAnswer.textContent = "Read";
