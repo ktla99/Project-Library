@@ -1,6 +1,7 @@
 let myLibrary = [];
 let library = document.getElementById('library');
 let text = document.getElementById('text');
+let author = document.getElementById('author');
 let pages = document.getElementById('pages');
 let titleOfBook =  document.getElementById('titleOfBook');
 let numberOfPages = document.getElementById('numberOfPages');
@@ -28,7 +29,7 @@ function bookButtonLoad() {
 let inputForm = document.getElementById("inputForm");
 let input = inputForm.addEventListener('submit', (e)=> {
         e.preventDefault();
-        if (text.value == "" || pages.value == "") {
+        if (text.value == "" || pages.value == "" || author.value == "") {
             alert("Ensure that you input a value in both fields!");
         } else {
             alert("This form has been successfully submitted!");
@@ -59,6 +60,10 @@ function boxChecked() {
     }
 };
 
+function Book(title, author, pages) {
+
+}
+
 function reset() {
     text.style.display = 'none';
     pages.style.display = 'none';
@@ -75,10 +80,10 @@ function reset() {
 }
 
 function addBookToLibrary() {
-    const nameAndPage = document.createElement("p");
-    nameAndPage.textContent = [text.value, pages.value];
+    let nameAndPage = document.createElement("p");
+    nameAndPage.textContent = [text.value, author.value, pages.value];
     library.append(nameAndPage);
-    const readAnswer = document.createElement("p");
+    let readAnswer = document.createElement("p");
     if(checkBoxOne.checked === true) {
         readAnswer.textContent = "Read";
         library.append(readAnswer);
@@ -96,17 +101,8 @@ function addBookToLibrary() {
 
 
 
+
 /*
-
-
-updateLibrary();
-
-removeBook();
-
-
-
-
-
 
     const title = "Warriors"
     const author = "Erin Hunter"
