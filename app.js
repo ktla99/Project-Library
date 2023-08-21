@@ -26,7 +26,7 @@ function bookButtonLoad() {
 };
 
 let inputForm = document.getElementById("inputForm");
-const input = inputForm.addEventListener('submit', (e)=> {
+let input = inputForm.addEventListener('submit', (e)=> {
         e.preventDefault();
         if (text.value == "" || pages.value == "") {
             alert("Ensure that you input a value in both fields!");
@@ -59,12 +59,6 @@ function boxChecked() {
     }
 };
 
-function valueOfBoxes() {
-    if (checkBoxOne.checked === true) {
-        return console.log("You have read ")
-    }
-}
-
 function reset() {
     text.style.display = 'none';
     pages.style.display = 'none';
@@ -76,6 +70,7 @@ function reset() {
     notReadQuestion.style.display = 'none';
     bookSubmit.style.display = 'none';
     library.style.display = "";
+    bookButton.style.display = "";
     bookButtonLoad();
 }
 
