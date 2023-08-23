@@ -24,13 +24,16 @@ function bookButtonLoad() {
         bookButton.style.display = 'none';
         library.style.display = 'none';
         inputThing.style.display = '';
+
+        checkBoxOne.checked = '';
+        checkBoxTwo.checked = '';
     });
 };
 
 let inputForm = document.getElementById("inputForm");
 let input = inputForm.addEventListener('submit', (e)=> {
         e.preventDefault();
-        if (text.text == "" || author.pages == "" || pages.author == "") {
+        if (text.value == "" || author.value == "" || pages.value == "") {
             alert("Ensure that you input a value in all three fields!");
         } else {
             alert("This form has been successfully submitted!");
