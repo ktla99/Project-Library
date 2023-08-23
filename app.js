@@ -1,5 +1,5 @@
 let myLibrary = [];
-let library = document.getElementById('library');
+let library = document.getElementById('folder');
 let text = document.getElementById('text');
 let author = document.getElementById('author');
 let pages = document.getElementById('pages');
@@ -31,10 +31,10 @@ let inputForm = document.getElementById("inputForm");
 let input = inputForm.addEventListener('submit', (e)=> {
         e.preventDefault();
         if (text.value == "" || pages.value == "" || author.value == "") {
-            alert("Ensure that you input a value in both fields!");
+            alert("Ensure that you input a value in all three fields!");
         } else {
             alert("This form has been successfully submitted!");
-            console.log(`The book title added is ${text.value} and has ${pages.value} pages.`);
+            console.log(`The book title added is ${text.value}, written by ${author.value} and has ${pages.value} pages.`);
         addBookToLibrary();
     }
 });
@@ -68,6 +68,12 @@ function reset() {
     bookButtonLoad();
 }
 
+function Book(text, author, pages) {
+    this.text = text;
+    this.author = author;
+    this.pages = pages;
+}
+
 function addBookToLibrary() {
     let nameAndPage = document.createElement("p");
     nameAndPage.textContent = [text.value, author.value, pages.value];
@@ -77,19 +83,29 @@ function addBookToLibrary() {
     if(checkBoxOne.checked === true) {
         readAnswer.textContent = "Read";
         library.append(readAnswer);
+        newButton();
         reset();
     } else {
         readAnswer.textContent = "Not Read";
         library.append(readAnswer);
+        newButtons();
         reset();
     }
 };                               
 
 
+function newButton() {
+    let removeBook = document.createElement('button');
+    removeBook.textContent = "Remove Book";
+    removeBook.addEventListener('click', ()=> {
+        removeBook.style.display = 'none';
+        this.style.display = 'none';
+    });
+    library.append(removeBook);
+};
 
 
-
-
+Object.setPrototypeOf(newButton.prototype, addBookToLibrary.prototype);
 
 
 /*
