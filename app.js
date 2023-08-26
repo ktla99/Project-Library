@@ -1,4 +1,4 @@
-let myLibrary = [];
+const myLibrary = [];
 let library = document.getElementById('folder');
 let text = document.getElementById('text');
 let author = document.getElementById('author');
@@ -24,7 +24,9 @@ function bookButtonLoad() {
         bookButton.style.display = 'none';
         library.style.display = 'none';
         inputThing.style.display = '';
-
+        text.textContent = 'yo';
+        author.textContent = 'yo';
+        pages.textContent = 'yo';
         checkBoxOne.checked = '';
         checkBoxTwo.checked = '';
     });
@@ -34,6 +36,7 @@ let inputForm = document.getElementById("inputForm");
 let input = inputForm.addEventListener('submit', (e)=> {
         e.preventDefault();
         if (text.value == "" || author.value == "" || pages.value == "") {
+            console.log("Ensure that you input a value in all three fields!");
             alert("Ensure that you input a value in all three fields!");
         } else {
             alert("This form has been successfully submitted!");
@@ -80,28 +83,28 @@ function addBookToLibrary() {
     if(checkBoxOne.checked === true) {
         readAnswer.textContent = "Read";
         library.appendChild(readAnswer);
-        newButton();
+        deleteButton();
         reset();
     } else {
         readAnswer.textContent = "Not Read";
         library.appendChild(readAnswer);
-        newButton();
+        deleteButton();
         reset();
-    }
-};                               
+    }                               
+};
 
-function newButton() {
+function deleteButton() {
     let removeBook = document.createElement('button');
     removeBook.innerHTML = "Remove Book";
     library.appendChild(removeBook);
     removeBook.addEventListener('click', ()=> {
-        library.removeChild(nameAndPage);
         removeBook.style.display = 'none';
+        library.removeChild(this);
     });
 };
 
 
-Object.setPrototypeOf(newButton.prototype, addBookToLibrary.prototype);
+
 
 
 /*
