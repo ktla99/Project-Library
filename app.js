@@ -77,29 +77,31 @@ function reset() {
 
 function addBookToLibrary() {
     let nameAndPage = document.createElement("p");
+    nameAndPage.id = text.value;
     nameAndPage.textContent = [text.value, author.value, pages.value];
     library.append(nameAndPage);
     let readAnswer = document.createElement("p");
     if(checkBoxOne.checked === true) {
         readAnswer.textContent = "Read";
-        library.appendChild(readAnswer);
-        deleteButton();
+        nameAndPage.appendChild(readAnswer);
+        deleteButton(text.value);
         reset();
     } else {
         readAnswer.textContent = "Not Read";
-        library.appendChild(readAnswer);
+        nameAndPage.appendChild(readAnswer);
         deleteButton();
         reset();
     }                               
 };
 
-function deleteButton() {
+function deleteButton(id) {
     let removeBook = document.createElement('button');
+    let bookElement = document.getElementById(id);
     removeBook.innerHTML = "Remove Book";
     library.appendChild(removeBook);
     removeBook.addEventListener('click', ()=> {
         removeBook.style.display = 'none';
-        library.removeChild(this);
+        library.removeChild(bookElement);
     });
 };
 
